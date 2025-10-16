@@ -23,7 +23,7 @@ const getBlogById = async (req, res) => {
 
 const updateBlogById = async (req, res) => {
     const { id: blogID } = req.params;
-    const task = await Task.findOneAndUpdate({ id: blogID }, req.body, {
+    const blog = await blog.findOneAndUpdate({ id: blogID }, req.body, {
         new: true,
         runValidators: true
     });
@@ -55,4 +55,5 @@ module.exports = {
     getBlogById,
     updateBlogById,
     deleteBlogById,
+
 };
