@@ -12,7 +12,7 @@ const postBlog = async (req, res) => {
 
 const getBlogById = async (req, res) => {
     const { id: blogID } = req.params;
-    const user = await blogSchema.findOne({ id: blogID });
+    const user = await blog.findOne({ id: blogID });
     if (blog) res.send({ blog });
     else {
         res.status(404).json({
@@ -40,7 +40,7 @@ const updateBlogById = async (req, res) => {
 
 const deleteBlogById = async (req, res) => {
     const { id: blogID } = req.params;
-    const blog = await blogSchema.findOneAndDelete({ id: blogID });
+    const blog = await blog.findOneAndDelete({ id: blogID });
     if (blog) res.send({ blog });
     else {
         res.status(404).json({
@@ -57,3 +57,4 @@ module.exports = {
     deleteBlogById,
 
 };
+
